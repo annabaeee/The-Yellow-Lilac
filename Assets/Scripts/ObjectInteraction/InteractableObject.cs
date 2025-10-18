@@ -7,9 +7,12 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
     [Header("UI Display")]
-    [Tooltip("The text that will be displayed in the UI panel.")]
-    [TextArea(5, 10)]
-    public string interactionText = "Default interaction text.";
+    [Tooltip("The short text that appears when the player looks at the object.")]
+    public string interactionPrompt;
+
+    [Tooltip("The full text that is displayed when the player interacts with the object.")]
+    [TextArea(3, 10)] // This makes the text field larger in the Inspector.
+    public string noteText;
 
     [Header("Visuals")]
     [Tooltip("The child GameObject that acts as the highlight/outline.")]

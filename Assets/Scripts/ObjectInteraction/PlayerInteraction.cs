@@ -48,7 +48,7 @@ public class PlayerInteraction : MonoBehaviour
             // And check for input to show a note.
             if (_currentInteractable != null && _input.interact)
             {
-                ShowNote(_currentInteractable.interactionText);
+                ShowNote(_currentInteractable.interactionPrompt);
                 _input.interact = false; // Consume input
             }
         }
@@ -71,11 +71,21 @@ public class PlayerInteraction : MonoBehaviour
         // If the detected object is different from the one we're currently highlighting, update the state.
         if (detectedInteractable != _currentInteractable)
         {
+            // --- HIDE OLD PROMPT & OUTLINE ---
             // De-highlight the old object if it exists.
-            _currentInteractable?.outlineObject?.SetActive(false);
+            if (_currentInteractable != null)
+            {
+                _currentInteractable.outlineObject?.SetActive(false);
+                UIManager.Instance.HideLookPrompt();
+            }
 
-            // Highlight the new object if it exists.
-            detectedInteractable?.outlineObject?.SetActive(true);
+            // --- SHOW NEW PROMPT & OUTLINE ---
+            // Highlight the new object and show its prompt if it exists.
+            if (detectedInteractable != null)
+            {
+                detectedInteractable.outlineObject?.SetActive(true);
+                UIManager.Instance.ShowLookPrompt(detectedInteractable.interactionPrompt);
+            }
 
             // Update the current interactable.
             _currentInteractable = detectedInteractable;
@@ -85,7 +95,15 @@ public class PlayerInteraction : MonoBehaviour
     private void ShowNote(string text)
     {
         _isShowingNote = true;
-        _currentInteractable?.outlineObject?.SetActive(false); // Hide outline while reading
+
+        // Hide outline and look prompt while reading the note to prevent UI overlap.
+        if (_currentInteractable != null)
+        {
+            _currentInteractable.outlineObject?.SetActive(false);
+            UIManager.Instance.HideLookPrompt(); 
+        }
+
+        // This remains the same: it shows your main note canvas.
         UIManager.Instance.ShowInteractionPanel(text);
         SetPlayerControl(false);
     }
@@ -95,6 +113,13 @@ public class PlayerInteraction : MonoBehaviour
         _isShowingNote = false;
         UIManager.Instance.HideInteractionPanel();
         SetPlayerControl(true);
+
+        // After closing the note, re-enable the outline and prompt if we're still looking at the object.
+        if (_currentInteractable != null)
+        {
+            _currentInteractable.outlineObject?.SetActive(true);
+            UIManager.Instance.ShowLookPrompt(_currentInteractable.interactionPrompt);
+        }
     }
 
     /// <summary>
