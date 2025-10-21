@@ -48,7 +48,7 @@ public class PlayerInteraction : MonoBehaviour
             // And check for input to show a note.
             if (_currentInteractable != null && _input.interact)
             {
-                ShowNote(_currentInteractable.interactionPrompt);
+                ShowNote(_currentInteractable.noteText);
                 _input.interact = false; // Consume input
             }
         }
@@ -127,6 +127,7 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     private void SetPlayerControl(bool hasControl)
     {
+        Debug.LogError("Setting Control to " + hasControl);
         _firstPersonController.enabled = hasControl;
         _input.cursorLocked = hasControl;
         _input.cursorInputForLook = hasControl;
