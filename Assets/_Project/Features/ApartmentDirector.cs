@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class ApartmentDirector : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class ApartmentDirector : MonoBehaviour
     [SerializeField] private float lightChangeDuration = 2.0f;
 
     [Header("Painting")]
-    [SerializeField] private Renderer[] paintingsToWarp;
+    [SerializeField] private Renderer paintingToWarp;
+    private Material paintingMaterial;
+    [SerializeField] private float fadeDuration;
 
     [Header("Audio")]
     [SerializeField] private AudioSource melodyAudioSource;
@@ -54,6 +57,12 @@ public class ApartmentDirector : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        paintingMaterial = paintingToWarp.material;
+        paintingMaterial.SetFloat("_FloatAmount", 1f);
+    }
+
     private IEnumerator FirstShiftSequence()
     {
         Debug.Log("first shift sequence started");
@@ -65,7 +74,21 @@ public class ApartmentDirector : MonoBehaviour
     {
         Debug.Log("second shift sequence started");
         StartCoroutine(FadeLightColor(apartmentLight, newLightColor, lightChangeDuration));
-        yield return null;
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(WarpPainting(paintingMaterial, fadeDuration));
+    }
+
+    private IEnumerator WarpPainting(Material paintingMaterial, float fadeDuration)
+    {
+        float time = 0;
+        paintingMaterial.SetFloat("_FloatAmount", 1f);
+        while (time < fadeDuration)
+        {
+            paintingMaterial.SetFloat("_FloatAmount", Mathf.Lerp(1f, 0f, time / fadeDuration));
+            time += Time.deltaTime;
+            yield return null;
+        }
+        paintingMaterial.SetFloat("_FloatAmount", 0f);
     }
 
     private IEnumerator FadeLightColor(Light light, Color targetColor, float duration)

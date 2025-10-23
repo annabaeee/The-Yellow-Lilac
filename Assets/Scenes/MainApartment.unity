@@ -173,8 +173,8 @@ PrefabInstance:
 
         But I was sure I had to look
 
-        As the stars shone
-        upon me and illuminated the cold night scenery
+        As the stars shone upon
+        me and illuminated the cold night scenery
 
         There I saw it
 
@@ -195,43 +195,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.119
+      value: 4.4164
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.376
+      value: 0.393
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.279
+      value: 6.921
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5035749
+      value: -0.0039235316
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4845248
+      value: -0.394377
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.49872684
+      value: 0.0017411812
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.51275676
+      value: -0.91893876
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -91.917
+      value: -180.361
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 170.701
+      value: 226.454
       objectReference: {fileID: 0}
     - target: {fileID: 5153654837136581523, guid: b522f5ab88c218d43bb93975edd2a013, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -262.04102
+      value: -360.33398
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -589,7 +589,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -618,7 +618,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d4bb59a99e96a1042bf9dc9c6779f89d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -662,7 +662,7 @@ Transform:
   m_LocalScale: {x: -0.27439833, y: 0.3260947, z: 0.0783121}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 953058609}
   m_LocalEulerAnglesHint: {x: 12.568, y: 0, z: 0}
 --- !u!1 &704335982
 GameObject:
@@ -1108,6 +1108,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 543450652698734624}
+  - {fileID: 473288599}
   - {fileID: 1984850713}
   - {fileID: 156728076}
   m_Father: {fileID: 0}
@@ -1160,6 +1161,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2665227842515228217, guid: ca55570b64ae7264aa780c28434c3a1d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2665227842515228217, guid: ca55570b64ae7264aa780c28434c3a1d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9bb3bdc3f9079ec4991c6cad04449b0d, type: 2}
+    - target: {fileID: -2665227842515228217, guid: ca55570b64ae7264aa780c28434c3a1d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bdead90fbb682469b0341ad62c96ca, type: 2}
     - target: {fileID: -1165395485129141314, guid: ca55570b64ae7264aa780c28434c3a1d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1171,6 +1184,10 @@ PrefabInstance:
     - target: {fileID: 4185117254919020159, guid: ca55570b64ae7264aa780c28434c3a1d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389513240700570685, guid: ca55570b64ae7264aa780c28434c3a1d, type: 3}
+      propertyPath: m_Name
+      value: painting
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1229,7 +1246,8 @@ MonoBehaviour:
   apartmentLight: {fileID: 896449572}
   newLightColor: {r: 0.8773585, g: 0.6802533, b: 0.13656996, a: 0}
   lightChangeDuration: 2
-  paintingsToWarp: []
+  paintingToWarp: {fileID: 2025616257}
+  fadeDuration: 2
   melodyAudioSource: {fileID: 0}
   whisperAudioSource: {fileID: 0}
   shadowEffect: {fileID: 0}
@@ -1911,6 +1929,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b10ad7319ad00419a82be1297c4d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+--- !u!23 &2025616257 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2665227842515228217, guid: ca55570b64ae7264aa780c28434c3a1d, type: 3}
+  m_PrefabInstance: {fileID: 1035114443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &543450652698734624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ca55570b64ae7264aa780c28434c3a1d, type: 3}
@@ -2011,4 +2034,3 @@ SceneRoots:
   - {fileID: 1296758893}
   - {fileID: 1728708989}
   - {fileID: 1968681799}
-  - {fileID: 473288599}
