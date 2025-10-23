@@ -14,7 +14,7 @@ public class ApartmentDirector : MonoBehaviour
     [SerializeField] private Material bookNewMaterial;
 
     [Header("Lighting")]
-    [SerializeField] private Light apartmentLight;
+    [SerializeField] private Light[] apartmentLight;
     [SerializeField] private Color newLightColor;
     [SerializeField] private float lightChangeDuration = 2.0f;
 
@@ -91,17 +91,23 @@ public class ApartmentDirector : MonoBehaviour
         paintingMaterial.SetFloat("_FloatAmount", 0f);
     }
 
-    private IEnumerator FadeLightColor(Light light, Color targetColor, float duration)
+    private IEnumerator FadeLightColor(Light[] lights, Color targetColor, float duration)
     {
         float time = 0;
-        Color startColor = light.color;
+        Color startColor = lights[0].color;
         while (time < duration)
         {
-            light.color = Color.Lerp(startColor, targetColor, time/duration);
+            foreach (Light light in lights)
+            {
+                light.color = Color.Lerp(startColor, targetColor, time / duration);
+            }
             time += Time.deltaTime;
             yield return null;
         }
-        light.color = targetColor;
+        foreach (Light light in lights)
+        {
+            light.color = targetColor;
+        }
     }
 
     public void NextNote()
