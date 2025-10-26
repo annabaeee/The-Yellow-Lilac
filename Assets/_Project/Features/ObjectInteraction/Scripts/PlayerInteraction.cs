@@ -118,9 +118,17 @@ public class PlayerInteraction : MonoBehaviour
         // After closing the note, re-enable the outline and prompt if we're still looking at the object.
         if (_currentInteractable != null)
         {
-            _currentInteractable.outlineObject?.SetActive(true);
-            UIManager.Instance.ShowLookPrompt(_currentInteractable.interactionPrompt);
-            ApartmentDirector.Instance.NextNote();
+            if (_currentInteractable.noteID == 4)
+            {
+                // If it is, trigger the final scene load.
+                ApartmentDirector.Instance.TriggerFinalShift();
+            }
+            else
+            {
+                _currentInteractable.outlineObject?.SetActive(true);
+                UIManager.Instance.ShowLookPrompt(_currentInteractable.interactionPrompt);
+                ApartmentDirector.Instance.NextNote();
+            }
         }
     }
 
